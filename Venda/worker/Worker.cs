@@ -10,15 +10,15 @@ namespace Venda.worker {
         public string Name { get; set; }
         public WorkerLevel Level { get; set; }
         public double BaseSalary { get; set; }
-        public Contract Contract { get; private set; }
+        public List<Contract> Contracts { get; private set; }
         public Department Department { get; set; }
 
-        public void SetContract(Contract contract) {
-            Contract = contract;
+        public void AddContract(Contract contract) {
+            Contracts.Add(contract);
         }
 
-        public void RemoveContract() {
-            Contract = null;
+        public void RemoveContract(Contract contract) {
+            Contracts.Remove(contract);
         }
 
         public double Income(int year, int month) {

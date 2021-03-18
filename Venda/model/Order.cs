@@ -13,6 +13,7 @@ namespace Venda.model
         public DateTime Moment { get; set; }
         public OrderStatus Status { get; set; }
         public List<OrderItem> OrderItens { get; set; }
+        public Cliente Cliente { get; set; }
 
         public void AddOrderItem(OrderItem orderItem)
         {
