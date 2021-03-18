@@ -10,16 +10,17 @@ namespace Venda
     {
         static void Main(string[] args)
         {
-            mockPost();
+            MockPost();
         }
-        private static void mockPost()
+        private static void MockPost()
         {
-            Post post = new Post(
+            Post post = new(
                 "Traveling to New Zeland",
                 "I'm going to visit this wonderfull coutry"
                 );
             post.AddComment(new("Have a nice trip"));
             post.AddComment(new("Wow that's awesome!"));
+            post.Likes = 12;
 
             Post post2 = new("Good night guys", "See You Tomorrow");
             post2.AddComment(new("Good night"));
