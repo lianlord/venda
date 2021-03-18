@@ -1,7 +1,7 @@
-﻿namespace Venda.worker {
+﻿namespace Venda.enums {
     public enum WorkerLevel {
-        JUNIOR,
-        MID_LEVEL,
-        SENIOR
+        Junior,
+        MidLevel,
+        Senior
     }
 }
