@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using Venda.employee;
 using Venda.enums;
 using Venda.model;
 using Venda.notification;
@@ -10,7 +12,23 @@ namespace Venda
     {
         static void Main(string[] args)
         {
-            MockPost();
+            MockEmployee();
+        }
+
+        private static void MockEmployee()
+        {
+            List<Employee> employees = new();
+            Employee employee1 = new("Marcos", 50),
+                employee2 = new("Sandra", 50),
+                employee3 = new OutsourceEmployee("Carla",30,1.1);
+            employees.Add(employee1);
+            employees.Add(employee2);
+            employees.Add(employee3);
+            employee1.Hours = 8;
+            employee2.Hours = 9;
+            employee3.Hours = 7;
+            employees.ForEach(employee => Console.WriteLine(employee + ", payment " + employee.Payment()));
+
         }
         private static void MockPost()
         {
@@ -25,7 +43,6 @@ namespace Venda
             Post post2 = new("Good night guys", "See You Tomorrow");
             post2.AddComment(new("Good night"));
             post2.AddComment(new("Good night"));
-
             Console.WriteLine(post+"\n"+post2);
 
 
