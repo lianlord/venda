@@ -4,6 +4,7 @@ using Venda.employee;
 using Venda.enums;
 using Venda.model;
 using Venda.notification;
+using Venda.shape;
 using Venda.worker;
 
 namespace Venda
@@ -12,7 +13,17 @@ namespace Venda
     {
         static void Main(string[] args)
         {
-            MockEmployee();
+            MockShape();
+        }
+
+        private static void MockShape()
+        {
+            List<Shape> shapes = new();
+            Shape rectagle = new Rectagle(Color.Red, 200, 300),
+                circle = new Circle(Color.Green, 3);
+            shapes.Add(rectagle);
+            shapes.Add(circle);
+            shapes.ForEach(shape => Console.WriteLine(shape+" area: "+shape.Area()));
         }
 
         private static void MockEmployee()
