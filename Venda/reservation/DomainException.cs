@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Venda.reservation
 {
-    class ReservationException : ApplicationException
+    class DomainException : ApplicationException
     {
-        public ReservationException(string message) : base(message)
+        public DomainException(string message) : base(message)
         {
         }
     }

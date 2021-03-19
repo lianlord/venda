@@ -9,6 +9,7 @@ using Venda.worker;
 
 namespace Venda
 {
+    //DomainException
     class Program
     {
         static void Main(string[] args)
@@ -28,7 +29,7 @@ namespace Venda
             {
                 Reservation reservation2 = new(3,new(2021,03,17), checkIn.AddDays(2));
             }
-            catch(ReservationException e)
+            catch(DomainException e)
             {
                 Console.WriteLine("R2: "+e.Message);
             }
@@ -37,7 +38,7 @@ namespace Venda
                 Reservation reservation3 = new(3,checkOut, new(2021,03,17));
                 Console.WriteLine(reservation3);
             }
-            catch(ReservationException e)
+            catch(DomainException e)
             {
                 Console.WriteLine("R3: "+e.Message);
             }
