@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Venda.employee;
 using Venda.enums;
-using Venda.model;
 using Venda.notification;
 using Venda.shape;
 using Venda.worker;
@@ -13,10 +12,49 @@ namespace Venda
     {
         static void Main(string[] args)
         {
-            MockShape();
+            MockException();
         }
 
-        private static void MockShape()
+        public static void MockException() {
+            double div = 0;
+            try
+            {
+                var num = 6 / int.Parse("0");
+            }
+            catch(DivideByZeroException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            try
+            {
+                var num = 6 / int.Parse("a");
+            }
+            catch(FormatException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                Console.WriteLine("SUCCES on exceptions");
+            }
+            
+            try
+            {
+                div = 6 / 3;
+            }
+            catch(FormatException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                Console.WriteLine("SUCCES on division: "+div);
+            }
+
+            
+        }
+
+        public static void MockShape()
         {
             List<Shape> shapes = new();
             Shape rectagle = new Rectagle(Color.Red, 200, 300),
@@ -26,7 +64,7 @@ namespace Venda
             shapes.ForEach(shape => Console.WriteLine(shape+" area: "+shape.Area()));
         }
 
-        private static void MockEmployee()
+        public static void MockEmployee()
         {
             List<Employee> employees = new();
             Employee employee1 = new("Marcos", 50),
@@ -41,7 +79,7 @@ namespace Venda
             employees.ForEach(employee => Console.WriteLine(employee + ", payment " + employee.Payment()));
 
         }
-        private static void MockPost()
+        public static void MockPost()
         {
             Post post = new(
                 "Traveling to New Zeland",
