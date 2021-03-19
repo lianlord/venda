@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Venda.employee;
 using Venda.enums;
 using Venda.notification;
+using Venda.reservation;
 using Venda.shape;
 using Venda.worker;
 
@@ -12,7 +13,34 @@ namespace Venda
     {
         static void Main(string[] args)
         {
-            MockException();
+            MockReservation();
+           
+        }
+
+        public static void MockReservation()
+        {
+            DateTime checkIn = DateTime.Now;
+            DateTime checkOut = checkIn.AddDays(3);
+            Reservation reservation = new(2, checkIn, checkOut);
+            Console.WriteLine(reservation);
+
+            try
+            {
+                Reservation reservation2 = new(3,new(2021,03,17), checkIn.AddDays(2));
+            }
+            catch(ReservationException e)
+            {
+                Console.WriteLine("R2: "+e.Message);
+            }
+            try
+            {
+                Reservation reservation3 = new(3,checkOut, new(2021,03,17));
+                Console.WriteLine(reservation3);
+            }
+            catch(ReservationException e)
+            {
+                Console.WriteLine("R3: "+e.Message);
+            }
         }
 
         public static void MockException() {
