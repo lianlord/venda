@@ -36,7 +36,11 @@ namespace Venda.reservation
             DateTime now = DateTime.Now.AddSeconds(-2);
             if (checkIn < now)
             {
+<<<<<<< HEAD
                 throw new DomainException("CheckIn date can't be before now");
+=======
+                throw new ReservationException("CheckIn date can't be before now");
+>>>>>>> 041ee45c792e7eb966c015c230bd4a41345f5758
             }
             CheckIn = checkIn;
         }
@@ -45,7 +49,11 @@ namespace Venda.reservation
         {
             if (CheckIn >= checkOut)
             {
+<<<<<<< HEAD
                 throw new DomainException("Checkout should be after checkIn");
+=======
+                throw new ReservationException("Checkout should be after checkIn");
+>>>>>>> 041ee45c792e7eb966c015c230bd4a41345f5758
             }
             CheckOut = checkOut;
         }
